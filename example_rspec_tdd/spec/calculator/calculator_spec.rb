@@ -1,13 +1,13 @@
 require 'calculator'
 
 describe Calculator do
+
+  Given 'I am on the calculator' do end
+  subject(:calc) { described_class.new() }
+  result = 0
+
   context '#sum' do
     example 'with positive numbers' do
-      calc = nil
-      result = 0
-      Given 'I am on the calculator' do
-        calc = Calculator.new
-      end
       When 'I calculate two positive numbers 5 and 7' do
         result = calc.sum(5, 7)
       end
@@ -17,11 +17,6 @@ describe Calculator do
     end
 
     example 'with negative and positive numbers' do
-      calc = nil
-      result = 0
-      Given 'I am on the calculator' do
-        calc = Calculator.new
-      end
       When 'I calculate two negative and positive numbers -5 and 7' do
         result = calc.sum(-5, 7)
       end
@@ -31,11 +26,6 @@ describe Calculator do
     end
 
     example 'with negative numbers' do
-      calc = nil
-      result = 0
-      Given 'I am on the calculator' do
-        calc = Calculator.new
-      end
       When 'I calculate two negative numbers -5 and -7' do
         result = calc.sum(-5, -7)
       end
