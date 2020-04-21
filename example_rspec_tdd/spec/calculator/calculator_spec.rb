@@ -1,15 +1,47 @@
 require 'calculator'
 
 describe Calculator do
-  it 'use sum method for 2 numbers' do
-    calc = Calculator.new
-    result = calc.sum(5, 7)
-    expect(result).to eq(12)
-  end
+  context '#sum' do
+    example 'with positive numbers' do
+      calc = nil
+      result = 0
+      Given 'I am on the calculator' do
+        calc = Calculator.new
+      end
+      When 'I calculate two positive numbers 5 and 7' do
+        result = calc.sum(5, 7)
+      end
+      Then 'I should see the result 12 of the calculation' do
+        expect(result).to eq(12)
+      end
+    end
 
-  specify 'use sum method for 2 numbers with negative numbers' do
-    calc = Calculator.new
-    result = calc.sum(-5, 7)
-    expect(result).to eq(2)
+    example 'with negative and positive numbers' do
+      calc = nil
+      result = 0
+      Given 'I am on the calculator' do
+        calc = Calculator.new
+      end
+      When 'I calculate two negative and positive numbers -5 and 7' do
+        result = calc.sum(-5, 7)
+      end
+      Then 'I should see the result 2 of the calculation' do
+        expect(result).to eq(2)
+      end
+    end
+
+    example 'with negative numbers' do
+      calc = nil
+      result = 0
+      Given 'I am on the calculator' do
+        calc = Calculator.new
+      end
+      When 'I calculate two negative numbers -5 and -7' do
+        result = calc.sum(-5, -7)
+      end
+      Then 'I should see the result -12 of the calculation' do
+        expect(result).to eq(-12)
+      end
+    end
   end
 end
