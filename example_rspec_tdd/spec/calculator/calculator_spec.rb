@@ -1,6 +1,6 @@
 require 'calculator'
 
-describe Calculator do
+describe Calculator, 'About the Calculator' do
 
   Given 'I am on the calculator' do end
   subject(:calc) { described_class.new() }
